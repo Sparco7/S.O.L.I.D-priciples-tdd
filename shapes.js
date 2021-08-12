@@ -93,7 +93,7 @@ const shapes = [new Circle(5), new Square(7)]
 
 let areaCalc = new AreaCalculator(shapes)
 
-console.log(areaCalc.sum());
+// console.log(areaCalc.sum());
 
 // let htmlAreaCalc = new AreaCalculatorHtml(areaCalc)
 
@@ -104,11 +104,12 @@ console.log(areaCalc.sum());
 // O - Open-closed Princile
 
 // class SquareWithArea extends Square{
+export class SquareWithArea extends Square{
 
-//     area(){
-//         return Math.pow(this.length, 2)
-//     }
-// }
+    area(){
+        return Math.pow(this.length, 2)
+    }
+}
 
 // class CircleWithArea extends Circle{
 
@@ -133,8 +134,8 @@ console.log(areaCalc.sum());
 //     }
 // }
 
-// const sq1 = new SquareWithArea(5)
-
+const sq1 = new SquareWithArea(4)
+console.log(sq1.area());
 // const crq1 = new CircleWithArea(50)
 
 // const areaCalc2 = new AreaCalculatorWithArea([sq1,crq1])
