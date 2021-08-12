@@ -111,13 +111,13 @@ export class SquareWithArea extends Square{
     }
 }
 
-// class CircleWithArea extends Circle{
+export class CircleWithArea extends Circle{
 
-//     area(){
-//         return Math.PI * this.radius ** 2
-//     }
+    area(){
+        return (Math.PI * this.radius ** 2).toFixed(2)
+    }
 
-// }
+}
 
 // class AreaCalculatorWithArea extends AreaCalculator{
 

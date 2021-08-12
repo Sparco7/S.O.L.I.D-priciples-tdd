@@ -2,6 +2,7 @@ import {Square} from "./shapes.js";
 import {Circle} from "./shapes.js";
 import {AreaCalculator} from "./shapes.js";
 import {SquareWithArea} from "./shapes.js";
+import {CircleWithArea} from "./shapes.js";
 
 // Square Test
 test("show return the length of a square to 5", () => {
@@ -31,4 +32,10 @@ test("calculates the area of different shapes(square and circle)", () => {
 test("shows the return area of a square", () => {
     const sq3 = new SquareWithArea(4)
     expect(sq3.area()).toBe(16);
+  });
+
+ // CircleWithArea
+ test("shows the return area of a circle", () => {
+    const circle3 = new CircleWithArea(6)
+    expect(circle3.area()).toBe("113.10");
   });
