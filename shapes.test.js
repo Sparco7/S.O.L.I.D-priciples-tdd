@@ -1,20 +1,27 @@
-import Square from './shapes.js'
-
+import {Square} from "./shapes.js";
+import {Circle} from "./shapes.js";
+import {AreaCalculator} from "./shapes.js";
 
 // Square Test
-test('show return the length of a square to 5', () =>{
-    const sq1 = new Square(5)
-    expect(sq1.getLegth()).toBe(5)
+test("show return the length of a square to 5", () => {
+  const sq1 = new Square(5);
+  expect(sq1.getLegth()).toBe(5);
 });
 
-test('show return the length of a square to 5', () =>{
-    const sq1 = new Square(7)
-    expect(sq1.length).toBe(7)
+test("show return the length of a square to 5", () => {
+  const sq1 = new Square(7);
+  expect(sq1.length).toBe(7);
 });
-
 
 // Circle Test
-test('show return the radius of a circle to 8', () =>{
-    const sq1 = new Square(8)
-    expect(sq1.length).toBe(8)
+test("show return the radius of a circle to 8", () => {
+  const circle1 = new Circle(8);
+  expect(circle1.radius).toBe(8);
 });
+
+// AreaCalculator Test 
+test("calculates the area of different shapes(square and circle)", () => {
+    const shapes = [new Circle(5), new Square(7)]
+    let areaCalc = new AreaCalculator(shapes)
+    expect(areaCalc.sum()).toBe("127.54");
+  });

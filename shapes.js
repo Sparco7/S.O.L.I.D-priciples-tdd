@@ -1,75 +1,69 @@
 // The S.O.L.I.D princilple for OOP - object oriented programing
 
-
 // S - Single responsibility principle
 
 // function / class  - every object has a specific responsibility
 
-export default class Square {
-    length;
+// class Square {
+export  class Square {
+  length;
 
-    constructor(length){
-        this.length = length
-    }
+  constructor(length) {
+    this.length = length;
+  }
 
-    getLegth(){
-        return this.length
-    }
-
+  getLegth() {
+    return this.length;
+  }
 }
 
+//  class Circle {
+export  class Circle {
+  radius;
 
-class Circle {
-    radius;
-
-    constructor(radius){
-        this.radius = radius
-    }
+  constructor(radius) {
+    this.radius = radius;
+  }
 }
 
+export class AreaCalculator {
+// class AreaCalculator {
+  shapes;
+  areas;
 
-// class AreaCalculator{
-//     shapes;
-//     areas;
+  constructor(shapes = []) {
+    this.shapes = shapes;
+  }
 
-//     constructor(shapes = []){
-//         this.shapes = shapes
-//     }
+  sum() {
+    this.areas = [];
 
-//     sum(){
-//         this.areas = []
+    this.shapes.forEach((shape) => {
+      if (shape instanceof Square) {
+        //  this.areas.push(shape.length ^ 2)
+        this.areas.push(Math.pow(shape.length, 2));
+      } else if (shape instanceof Circle) {
+        //  this.areas.push( Math.PI * Math.pow( shape.radius , 2 ) )
+        this.areas.push(Math.PI * shape.radius ** 2);
+      } else {
+        throw Error("Wrong Shape");
+      }
+    });
 
-//         this.shapes.forEach(shape => {
-//             if( shape instanceof Square) {
-//             //  this.areas.push(shape.length ^ 2)
-//                 this.areas.push(Math.pow(shape.length, 2))
-//             }
-//             else if( shape instanceof Circle){
-//             //  this.areas.push( Math.PI * Math.pow( shape.radius , 2 ) )
-//                 this.areas.push( Math.PI * shape.radius ** 2 )
-//             }else{
-//                 throw Error("Bad Shape")
-//             }
-//         });
+    return this._sumArray(this.areas);
+  }
 
-//         return this._sumArray(this.areas)
-//     }
+  _sumArray(array) {
+    return array.reduce((sum, current) => {
+      return (sum + current).toFixed(2);
+    });
+  }
 
-
-//     _sumArray(array){
-//         return array.reduce((sum, current) => {
-//             return sum + current
-//         })
-//     }
-
-//     output(){
-//         return  `The Sum of all the Shapes in Area is: 
-//                 ${this.sum()}`
-//     }
-
-
-// }
-
+  output() {
+    return `The Sum of all the Shapes in Area is: 
+                ${this.sum()}`;
+  }
+}
 
 // class AreaCalculatorHtml {
 //     calculator
@@ -80,11 +74,11 @@ class Circle {
 //     }
 
 //     JSON(){
-        
+
 //         this.data = [
 //                 { 'sum' : this.calculator.sum() }
 //             ]
-        
+
 //         return JSON.stringify(this.data)
 //     }
 
@@ -93,11 +87,13 @@ class Circle {
 //     }
 // }
 
-
-
 // const shapes = [new Circle(5), new Square(7),new Circle(8), new Circle(10),new Square(18), new Square(20)]
 
-// let areaCalc = new AreaCalculator(shapes)
+const shapes = [new Circle(5), new Square(7)]
+
+let areaCalc = new AreaCalculator(shapes)
+
+console.log(areaCalc.sum());
 
 // let htmlAreaCalc = new AreaCalculatorHtml(areaCalc)
 
@@ -105,15 +101,7 @@ class Circle {
 
 // console.log(htmlAreaCalc.HTML())
 
-
-
-
-
-
-
-// O - Open-closed Princile 
-
-
+// O - Open-closed Princile
 
 // class SquareWithArea extends Square{
 
@@ -122,13 +110,10 @@ class Circle {
 //     }
 // }
 
-
-
-
-// class CircleWithArea extends Circle{    
+// class CircleWithArea extends Circle{
 
 //     area(){
-//         return Math.PI * this.radius ** 2 
+//         return Math.PI * this.radius ** 2
 //     }
 
 // }
@@ -141,13 +126,12 @@ class Circle {
 
 //     sum(){
 //         this.areas = []
-        
+
 //         this.shapes.forEach(shape => this.areas.push(shape.area()));
 
 //         return this._sumArray(this.areas)
 //     }
 // }
-
 
 // const sq1 = new SquareWithArea(5)
 
@@ -157,16 +141,13 @@ class Circle {
 
 // const areaCalc2Html = new AreaCalculatorHtml(areaCalc2)
 
-
 // console.log(sq1.area())
 // console.log(crq1.area())
 
 // console.log(areaCalc2.sum())
 // console.log(areaCalc2Html.JSON())
 
-
 // L - Liskov Substitution Principle
-
 
 // We want a new calculator for Volume Calculation
 
@@ -186,66 +167,16 @@ class Circle {
 
 // const volumeCalc2 = new VolumeCalculator([sq1,crq1])
 
-
 // const volumeCalc2Html = new AreaCalculatorHtml(volumeCalc2)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // I - Interface Segregation Principle
 
 // I don't have to implement what I don't need!!!
 
-
-
-
-
-
-
-
-
-
-
-
-
 // D - Dependency Inversion Principle
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // DRY - Don't repeat yourself - functions
 
 // KISS - Keep it simple stupid - make the simplest solution / algorith without with little complexity
-
 
 // TDD - Test driven development - JEST
