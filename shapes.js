@@ -19,13 +19,13 @@ export default class Square {
 }
 
 
-// class Circle {
-//     radius;
+class Circle {
+    radius;
 
-//     constructor(radius){
-//         this.radius = radius
-//     }
-// }
+    constructor(radius){
+        this.radius = radius
+    }
+}
 
 
 // class AreaCalculator{
