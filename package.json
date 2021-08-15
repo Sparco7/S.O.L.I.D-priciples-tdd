@@ -11,9 +11,13 @@
   "devDependencies": {
     "@babel/core": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
+    "@babel/preset-typescript": "^7.15.0",
     "babel-jest": "^27.0.6",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "jest": "^27.0.6"
+  },
+  "dependencies": {
+    "@types/jest": "^27.0.1"
   }
 }

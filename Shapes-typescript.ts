@@ -6,9 +6,9 @@
 
 
 interface ShapeI {
-    area():Function;
+    area?:Function;
 
-    volume():Function; 
+    volume?:Function; 
 }
 
 
@@ -25,7 +25,7 @@ class VolumeCalculator implements ShapeI{
 
 interface ManageShapeInterface
 {
-    calculate():Function;
+    calculate:Function;
 }
 
 
@@ -42,7 +42,7 @@ class Square implements ShapeI, ManageShapeInterface{
 
 
 class Cubic implements ShapeI, ManageShapeInterface{
-    public function area(){
+    public area(){
         // calculate the surface area of the Cubic
     }
 

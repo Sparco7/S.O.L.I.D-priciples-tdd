@@ -3,12 +3,14 @@ import {Circle} from "./shapes.js";
 import {AreaCalculator} from "./shapes.js";
 import {SquareWithArea} from "./shapes.js";
 import {CircleWithArea} from "./shapes.js";
+import VolumeCalculator from './Shapes-typescript'
 
 // Square Test
 test("show return the length of a square to 5", () => {
   const sq1 = new Square(5);
   expect(sq1.getLegth()).toBe(5);
 });
+
 
 test("show return the length of a square to 5", () => {
   const sq2 = new Square(7);
