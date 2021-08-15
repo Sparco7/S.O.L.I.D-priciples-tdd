@@ -5,7 +5,7 @@
 // function / class  - every object has a specific responsibility
 
 // class Square {
-export  class Square {
+export class Square {
   length;
 
   constructor(length) {
@@ -17,8 +17,8 @@ export  class Square {
   }
 }
 
-//  class Circle {
-export  class Circle {
+ class Circle {
+// export class Circle {
   radius;
 
   constructor(radius) {
@@ -26,8 +26,8 @@ export  class Circle {
   }
 }
 
-export class AreaCalculator {
-// class AreaCalculator {
+// export class AreaCalculator {
+  class AreaCalculator {
   shapes;
   areas;
 
@@ -65,37 +65,37 @@ export class AreaCalculator {
   }
 }
 
-// class AreaCalculatorHtml {
-//     calculator
-//     data
+class AreaCalculatorHtml {
+    calculator
+    data
 
-//     constructor(calculator){
-//         this.calculator = calculator
-//     }
+    constructor(calculator){
+        this.calculator = calculator
+    }
 
-//     JSON(){
+    JSON(){
 
-//         this.data = [
-//                 { 'sum' : this.calculator.sum() }
-//             ]
+        this.data = [
+                { 'sum' : this.calculator.sum() }
+            ]
 
-//         return JSON.stringify(this.data)
-//     }
+        return JSON.stringify(this.data)
+    }
 
-//     HTML(){
-//        return `<div> The sum is ${this.calculator.sum()} </div>`
-//     }
-// }
+    HTML(){
+       return `<div> The sum is ${this.calculator.sum()} </div>`
+    }
+}
 
 // const shapes = [new Circle(5), new Square(7),new Circle(8), new Circle(10),new Square(18), new Square(20)]
 
-const shapes = [new Circle(5), new Square(7)]
+const shapes = [new Circle(5), new Square(7)];
 
-let areaCalc = new AreaCalculator(shapes)
+let areaCalc = new AreaCalculator(shapes);
 
 // console.log(areaCalc.sum());
 
-// let htmlAreaCalc = new AreaCalculatorHtml(areaCalc)
+let htmlAreaCalc = new AreaCalculatorHtml(areaCalc)
 
 // console.log(areaCalc.output())
 
@@ -103,42 +103,44 @@ let areaCalc = new AreaCalculator(shapes)
 
 // O - Open-closed Princile
 
-// class SquareWithArea extends Square{
-export class SquareWithArea extends Square{
-
-    area(){
-        return Math.pow(this.length, 2)
-    }
+class SquareWithArea extends Square{
+// export class SquareWithArea extends Square {
+  area() {
+    return Math.pow(this.length, 2);
+  }
 }
 
-export class CircleWithArea extends Circle{
-
-    area(){
-        return (Math.PI * this.radius ** 2).toFixed(2)
-    }
-
+class CircleWithArea extends Circle {
+// export class CircleWithArea extends Circle {
+  area() {
+    return (Math.PI * this.radius ** 2).toFixed(2);
+  }
 }
 
-// class AreaCalculatorWithArea extends AreaCalculator{
+class AreaCalculatorWithArea extends AreaCalculator {
+// export class AreaCalculatorWithArea extends AreaCalculator {
+  constructor(shapes) {
+    super(shapes);
+  }
 
-//     constructor(shapes){
-//         super(shapes)
-//     }
+  sum() {
+    this.areas = [];
 
-//     sum(){
-//         this.areas = []
+    this.shapes.forEach((shape) => this.areas.push(shape.area()));
 
-//         this.shapes.forEach(shape => this.areas.push(shape.area()));
+    return this._sumArray(this.areas);
+  }
+}
 
-//         return this._sumArray(this.areas)
-//     }
-// }
+const sq1 = new SquareWithArea(4);
+// console.log(sq1.area());
+const crq1 = new CircleWithArea(6)
 
-const sq1 = new SquareWithArea(4)
-console.log(sq1.area());
-// const crq1 = new CircleWithArea(50)
+// console.log(sq1.area());
 
-// const areaCalc2 = new AreaCalculatorWithArea([sq1,crq1])
+const areaCalc2 = new AreaCalculatorWithArea([sq1,crq1])
+
+console.log(areaCalc2);
 
 // const areaCalc2Html = new AreaCalculatorHtml(areaCalc2)
 
@@ -152,19 +154,17 @@ console.log(sq1.area());
 
 // We want a new calculator for Volume Calculation
 
-// class VolumeCalculator extends AreaCalculator
-// {
-//     constructor(shapes = [])
-//     {
-//         super(shapes);
-//     }
+class VolumeCalculator extends AreaCalculator {
+// export class VolumeCalculator extends AreaCalculator {
+  constructor(shapes = []) {
+    super(shapes);
+  }
 
-//     sum()
-//     {
-//         // ... logic to calculate the volumes and then return an array of output
-//         return [summedData];
-//     }
-// }
+  sum() {
+    // ... logic to calculate the volumes and then return an array of output
+    return [summedData];
+  }
+}
 
 // const volumeCalc2 = new VolumeCalculator([sq1,crq1])
 

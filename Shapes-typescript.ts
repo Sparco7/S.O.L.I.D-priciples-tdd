@@ -5,54 +5,77 @@
 // I don't have to implement what I don't need!!!
 
 
-interface ShapeI {
+export interface ShapeI {
     area?:Function;
 
     volume?:Function; 
 }
 
 
-class VolumeCalculator implements ShapeI{
+// class VolumeCalculator implements ShapeI{
 
 
-    volume(){
+//     volume(){
 
-    }
-}
+//     }
+// }
 
 
 // D - Dependency Inversion Principle
 
-interface ManageShapeInterface
-{
-    calculate:Function;
+// interface ManageShapeInterface
+// {
+//     calculate:Function;
+// }
+
+
+export class Square implements ShapeI {
+    length:number;
+
+    constructor (length) {
+        this.length = length
+    }
+
+    getLegth(){
+        return this.length
+    }
+    
+    public area(){
+        return Math.pow(this.length, 2)
+    }
+   
 }
 
+export class Cubic extends Square implements ShapeI {
 
-class Square implements ShapeI, ManageShapeInterface{
-
-    public area(){
-        // find area of square
+    length:number;
+    public volume():number {
+        return (this.length * this.area())
     }
+//     public calculate(){
+// return (this.length * this.area())    }
 
-    public calculate(){
-        return this.area()
-    }
 }
 
+export class Circle implements ShapeI {
+    radius:number;
 
-class Cubic implements ShapeI, ManageShapeInterface{
-    public area(){
-        // calculate the surface area of the Cubic
+    constructor (radius) {
+        this.radius = radius
     }
+    area() {
+      return (Math.PI * this.radius ** 2).toFixed(2);
+    }
+  }
+export class Ball extends Circle implements ShapeI {
 
-    public volume(){
-        // calculate the volume of the Cubic
-    }
+    radius:number;
 
-    public calculate(){
-        // calculate the volume by area fo the Cubic
+    public volume():number {
+        return Number(((Math.PI * this.radius ** 3)*4/3).toFixed(2))
     }
+//     public calculate(){
+// return (this.length * this.area())    }
 
 }
 
